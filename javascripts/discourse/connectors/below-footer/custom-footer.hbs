@@ -1,0 +1,54 @@
+{{#if showFooter}}
+  <div class='wrap'>
+    <div class='flexbox'>
+      <div class='first-box'>
+        <a href='https://matter-community.com/' target='_self'>
+            <picture>
+              <source srcset='{{theme-setting "theme_uploads.logo-dark"}}' media='(prefers-color-scheme: dark)'/>
+              <img src="{{theme-setting "theme_uploads.logo-light"}}" />
+            </picture>
+        </a>
+      </div>
+      <div class='second-box'>
+        <div class='links'>
+          {{#each linkSections as |section|}}
+            <div class='list'>
+              <ul>
+                {{#each section.childLinks as |link|}}
+                  <li class='footer-section-link-wrapper {{link.className}}'>
+                    <a class='footer-section-link' title='{{link.title}}' href='{{link.href}}' target='{{link.target}}'>
+                      {{link.text}}
+                    </a>
+                  </li>
+                {{/each}}
+              </ul>
+            </div>
+          {{/each}}
+        </div>
+      </div>
+      <div class='third-box'>
+        <div class='heading'>
+          {{mainHeading}}
+        </div>
+        <div class='blurb'>
+          {{blurb}}
+        </div>
+      </div>
+      <div class='forth-box'>
+        <div class='footer-links'>
+          <div class='copyright'>Copyright © {{copyrightYear}} by Z-Wave Europe GmbH</div>
+        </div>
+        <div class='social'>
+          {{#each socialLinks as |link|}}
+            <a
+              class='social-link {{link.className}}'
+              title='{{link.title}}'
+              target='{{link.target}}'
+              href='{{link.href}}'
+            >{{d-icon link.icon}}</a>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
+{{/if}}
